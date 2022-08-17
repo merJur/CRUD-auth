@@ -4,6 +4,8 @@ const hbs = require("hbs")
 
 const app = express()
 
+require("./config/db.config")
+
 app.use(express.static("public"))
 app.use(express.urlencoded({ extended:false }))
 app.use(logger("dev"))
