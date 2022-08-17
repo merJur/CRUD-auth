@@ -1,6 +1,6 @@
 const mongoose = require ("mongoose")
+const productsSchema = new mongoose.Schema({
 
-const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Product name is required"],
@@ -8,6 +8,10 @@ const productSchema = new mongoose.Schema({
     },
     description: {
         type: String,
+        maxLength: [225, "product description must contain a maximun of 225 characters"],
+    },
+    price:{
+        type: Number,
         required: [true, "product price is required"],
         min: [1, "product minimun price is 1"]
     },
@@ -17,6 +21,6 @@ const productSchema = new mongoose.Schema({
     }
 })
 
-const Product = mongoose.model("Product", productSchema)
+const Products = mongoose.model("Products", productsSchema)
 
-module.exports = Product
+module.exports = Products

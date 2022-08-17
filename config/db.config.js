@@ -1,11 +1,11 @@
 const mongoose = require("mongoose")
 
 const MONGODB_URI = 
-process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/axiosCRUD"
+process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/CRUD-auth"
 
 mongoose
     .connect(MONGODB_URI, {
-        userNewUrlParser: true, 
+        useNewUrlParser: true, 
         useUnifiedTopology: true,
     })
     .then((x) => {

@@ -7,7 +7,13 @@ const productsController = require("../controllers/productController")
 router.get("/", miscController.home)
 
 //products
+    //list
 router.get("/products/store", productsController.list)
+    //see details
+router.get("/products/:id", productsController.details)
+    //create
+router.get("/products/create", productsController.create)
+router.post("/products/store", productsController.doCreate)
 
 
 module.exports = router
