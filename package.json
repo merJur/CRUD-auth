@@ -1,4 +1,25 @@
 {
+  "name": "lab-axios-crud",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js -e hbs, js, css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merJur/axios-CRUD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merJur/axios-CRUD/issues"
+  },
+  "homepage": "https://github.com/merJur/axios-CRUD#readme",
+  "description": "",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "express": "^4.18.1",
