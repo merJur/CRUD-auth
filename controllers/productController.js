@@ -1,42 +1,43 @@
-const Product = require("../models/Products")
-const createError = require("http-errors")
-
+const Product = require("../models/Products");
+const createError = require("http-errors");
 
 //list products
-module.exports.list = (res, req, next) => {
-    Product.find()
+module.exports.list = (req, res, next) => {
+  Product.find()
     .then((products) => {
-        res.render("products/store", {products})
+        console.log("entra aquí??")
+      res.render("home", { products });
     })
-    .catch((err) => next (err))
-} 
+    .catch((err) => next(err));
+};
 
-//create product
+//create  new product
 module.exports.create = (req, res, next) => {
-    res.render("products/form")
-}
+  res.render("products/form");
+};
 
 module.exports.doCreate = (req, res, next) => {
-    Product.create(req.body)
-    .then((product) => {
-        res.redirect(`/products/${product._id}`)
+  Product.create(req.body)
+    .then((createdProduct) => {
+        console.log("producto creado");
+      res.redirect(`products/store`);
     })
     .catch((err) => {
-        console.log(err)
-        next(err)
-    })
-}
+      console.log("error al crear producto");
+      next(err);
+    });
+};
 
 //see details
-module.exports.details = (res, req, next) => {
-    const {id} = req.params
+module.exports.details = (req, res, next) => {
+  const { id } = req.params;
 
-    Product.findById(id)
+  Product.findById(id)
     .then((product) => {
-        res.render("products/details", {product})
+      res.render("products/details", { product });
     })
     .catch((err) => {
-        console.log(err)
-        next(createError(404, "product not found"))
-    })
-}
+      console.log("error details");
+      next(createError(404, "product not found"));
+    });
+};
